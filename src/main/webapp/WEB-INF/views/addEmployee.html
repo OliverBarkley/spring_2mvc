@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+<h2>Add Employee</h2>
+<div>
+    <form th:action="@{/users/add}" th:object="${user}" method="post">
+        <fieldset>
+            <legend>Employee Data</legend>
+            <p>
+                <label th:for="name">Name</label>
+                <input type="text" name="name" th:id="name" th:value="${user.getName()}">
+            </p>
+            <p>
+                <label th:for="surname">Surname</label>
+                <input type="text" name="surname" th:id="surname" th:value="${user.getSurname()}"><br/>
+            </p>
+            <p>
+                <label th:for="department">Department</label>
+                <input type="text" name="department" th:id="department" th:value="${user.getDepartment()}"><br/>
+            </p>
+            <p>
+                <label th:for="salary">Salary</label>
+                <input type="text" name="salary" th:id="salary" th:value="${user.getSalary()}"><br/>
+            </p>
+        </fieldset>
+        <button type="submit">Save Employee</button>
+    </form>
+    <br/>
+    <form th:action="@{/}">
+        <button type="submit" class="btn btn-outline-danger">Back to ListEmployees</button>
+    </form>
+</div>
+</body>
+</html>
